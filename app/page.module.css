@@ -33,3 +33,11 @@
   font-weight: 400;
   line-height: normal;
 } */
+
+.not_found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  color: var(--color-error);
+}
