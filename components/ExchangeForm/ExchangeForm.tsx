@@ -6,11 +6,6 @@ import styles from './ExchangeForm.module.css';
 import { exchangeCurrency } from '@/lib/service/exchangeAPI';
 import { useCurrencyState } from '@/lib/stores/currencyStore';
 
-interface ErrorResponse {
-  response?: { data?: { error?: { message?: string } } };
-  message: string;
-}
-
 export default function ExchangeForm() {
   const { setExchangeInfo, setError, setLoading } = useCurrencyState();
 
@@ -37,7 +32,6 @@ export default function ExchangeForm() {
       alert(data);
     } finally {
       setLoading(false);
-      console.log('Loading false');
     }
   }
 

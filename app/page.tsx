@@ -3,23 +3,21 @@
 import Section from '@/components/Section/Section';
 import Container from '@/components/Container/Container';
 import Heading from '@/components/Heading/Heading';
-
-import css from './page.module.css';
 import ExchangeForm from '@/components/ExchangeForm/ExchangeForm';
 import ExchangeInfo from '@/components/ExchangeInfo/ExchangeInfo';
-import { useCurrencyState } from '@/lib/stores/currencyStore';
 import Loader from '@/components/Loader/Loader';
+
+import css from './page.module.css';
+import { useCurrencyState } from '@/lib/stores/currencyStore';
 
 export default function Home() {
   const { exchangeInfo, isError, isLoading } = useCurrencyState();
 
   return (
     <main className={css.main}>
-      {isLoading && <Loader />}
       <Section>
         <Container>
-          <ExchangeForm />
-
+          {isLoading && <Loader />}
           {!isError ? (
             <Heading info title="What currencies do you want to exchange?🙂" />
           ) : (
@@ -28,6 +26,8 @@ export default function Home() {
               title="Something went wrong...😐 Check the data validity and try again!"
             />
           )}
+
+          <ExchangeForm />
 
           {exchangeInfo && (
             <ExchangeInfo

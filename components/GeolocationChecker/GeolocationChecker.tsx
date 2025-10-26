@@ -9,9 +9,6 @@ export default function GeolocationChecker() {
   const { setBaseCurrency, baseCurrency, hasHydrated } = useCurrencyState();
 
   useEffect(() => {
-    console.log('hasHydrated', hasHydrated);
-    console.log('baseCurrency', baseCurrency);
-
     if (hasHydrated || baseCurrency) return;
 
     const options = {
